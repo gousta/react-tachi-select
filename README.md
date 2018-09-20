@@ -8,20 +8,20 @@
 
 ```bash
 npm install --save react-tachi-select
+-- OR --
+yarn add react-tachi-select
 ```
 
 ## Usage
 
 ```tsx
-import * as React from 'react'
+import * as React from "react";
 
-import MyComponent from 'react-tachi-select'
+import ReactTachiSelect from "react-tachi-select";
 
 class Example extends React.Component {
-  render () {
-    return (
-      <MyComponent />
-    )
+  render() {
+    return <ReactTachiSelect />;
   }
 }
 ```
