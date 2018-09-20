@@ -1,7 +1,7 @@
-import ExampleComponent from './'
+import ReactTachiSelect from "./";
 
-describe('ExampleComponent', () => {
-  it('is truthy', () => {
-    expect(ExampleComponent).toBeTruthy()
-  })
-})
+describe("ReactTachiSelect", () => {
+  it("is truthy", () => {
+    expect(ReactTachiSelect).toBeTruthy();
+  });
+});

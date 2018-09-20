@@ -20,8 +20,33 @@ import * as React from "react";
 import ReactTachiSelect from "react-tachi-select";
 
 class Example extends React.Component {
+  state = {
+    selectedValue: ""
+  };
+
+  handleChange = (value) => {
+    this.setState({ selectedValue: value });
+  };
+
   render() {
-    return <ReactTachiSelect />;
+    const data = [
+      {
+        value: 1,
+        label: "Option 1",
+        searchable: "option 1"
+      },
+      {
+        value: 2,
+        label: "Option 2",
+        searchable: "option 2"
+      },
+      {
+        value: 3,
+        label: "Option 3",
+        searchable: "option 3"
+      }
+    ];
+    return <ReactTachiSelect data={data} onChange={this.handleChange} />;
   }
 }
 ```
