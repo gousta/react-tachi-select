@@ -87,11 +87,17 @@ export interface Props {
   data: Array<DataItem>;
   onChange: Function;
   placeholder: string | undefined;
+  renderLimit?: number;
   wrapperClass?: any;
   className?: any;
 }
 
-export default class ReactTachiSelect extends React.Component<Props> {
+export interface State {
+  label: string | null | undefined;
+  search: string | null | undefined;
+}
+
+export default class ReactTachiSelect extends React.Component<Props, State> {
   public state = {
     label: null,
     search: ""
@@ -107,7 +113,12 @@ export default class ReactTachiSelect extends React.Component<Props> {
   };
 
   render() {
-    const { wrapperClass, className, placeholder = "Search" } = this.props;
+    const {
+      wrapperClass,
+      className,
+      placeholder = "Search",
+      renderLimit = 250
+    } = this.props;
 
     let { data } = this.props;
     const { search, label } = this.state;
@@ -116,7 +127,6 @@ export default class ReactTachiSelect extends React.Component<Props> {
       data = data.filter((o) => o.searchable.includes(search.toLowerCase()));
     }
 
-    const renderLimit = 250;
     const overRenderLimit = data.length > renderLimit;
 
     return (
@@ -133,13 +143,13 @@ export default class ReactTachiSelect extends React.Component<Props> {
             </SelectedRemove>
           </Selected>
         ) : (
-          <Input
-            placeholder={placeholder}
-            type="text"
-            className={className}
-            onChange={this.onType}
-          />
-        )}
+            <Input
+              placeholder={placeholder}
+              type="text"
+              className={className}
+              onChange={this.onType}
+            />
+          )}
 
         {search.length > 0 ? (
           <Result>
