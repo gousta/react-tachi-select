@@ -1,6 +1,6 @@
 {
   "name": "react-tachi-select",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "description": "A React Select that works really well with a huge amount of data",
   "author": "gousta",
   "license": "MIT",
